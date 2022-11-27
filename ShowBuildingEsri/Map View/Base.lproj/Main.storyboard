@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="ShowBuildingEsri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djc-Hb-HGT" customClass="AGSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="djc-Hb-HGT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5kU-87-3c1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djc-Hb-HGT" secondAttribute="trailing" id="NGI-5O-f7v"/>
+                            <constraint firstAttribute="bottom" secondItem="djc-Hb-HGT" secondAttribute="bottom" id="V16-8S-TOw"/>
+                            <constraint firstItem="djc-Hb-HGT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="m5N-nN-qC0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sqM-Nl-742"/>
+                    <connections>
+                        <outlet property="mapView" destination="djc-Hb-HGT" id="Xee-M4-qoY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="96.428571428571431"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="SVJ-vc-LGm">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" id="9KM-9U-7Zy" customClass="DetailsViewController" customModule="ShowBuildingEsri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2aj-ea-K0O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-h6-28S">
+                                <rect key="frame" x="20" y="98" width="374" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="acu-At-YnO"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Details"/>
+                                    <segment title="Attached"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SegmentAction:" destination="9KM-9U-7Zy" eventType="touchUpInside" id="Pcm-n9-nyi"/>
+                                    <action selector="SegmentAction:" destination="9KM-9U-7Zy" eventType="valueChanged" id="b38-n8-qsG"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zI-ty-p4U">
+                                <rect key="frame" x="0.0" y="136" width="414" height="2"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="u5S-X1-rmA"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1MA-Jg-P8n">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.85519202176850584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="point Details" id="OXx-pX-JFG">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="JQ8-FD-6MP">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="DoneButton:" destination="9KM-9U-7Zy" id="CMo-6q-2B9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTm-9D-7Eg">
+                                <rect key="frame" x="0.0" y="146" width="414" height="716"/>
+                                <connections>
+                                    <segue destination="0C3-ho-wqi" kind="embed" id="Vth-ps-NlB"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEf-oT-DnR">
+                                <rect key="frame" x="0.0" y="146" width="414" height="716"/>
+                                <connections>
+                                    <segue destination="db3-Zk-15s" kind="embed" id="oi1-n3-i35"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qje-eJ-LxB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PEf-oT-DnR" firstAttribute="top" secondItem="3zI-ty-p4U" secondAttribute="bottom" constant="8" symbolic="YES" id="0u8-Y1-dJY"/>
+                            <constraint firstItem="GXz-h6-28S" firstAttribute="leading" secondItem="qje-eJ-LxB" secondAttribute="leading" constant="20" id="5WG-uV-fIl"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="trailing" secondItem="PEf-oT-DnR" secondAttribute="trailing" id="7BK-j5-UaN"/>
+                            <constraint firstItem="3zI-ty-p4U" firstAttribute="top" secondItem="GXz-h6-28S" secondAttribute="bottom" constant="8" symbolic="YES" id="HF6-Vy-PBt"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="trailing" secondItem="GXz-h6-28S" secondAttribute="trailing" constant="20" id="On4-fN-VP7"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="bottom" secondItem="PEf-oT-DnR" secondAttribute="bottom" id="OyI-Xh-qSq"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="bottom" secondItem="oTm-9D-7Eg" secondAttribute="bottom" id="Q0i-av-zNP"/>
+                            <constraint firstItem="1MA-Jg-P8n" firstAttribute="top" secondItem="qje-eJ-LxB" secondAttribute="top" id="Q7P-4D-Eoz"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="trailing" secondItem="oTm-9D-7Eg" secondAttribute="trailing" id="SAt-o7-FU1"/>
+                            <constraint firstItem="PEf-oT-DnR" firstAttribute="leading" secondItem="qje-eJ-LxB" secondAttribute="leading" id="Vpt-Ei-Alk"/>
+                            <constraint firstItem="oTm-9D-7Eg" firstAttribute="leading" secondItem="qje-eJ-LxB" secondAttribute="leading" id="XOH-Yr-Vre"/>
+                            <constraint firstItem="oTm-9D-7Eg" firstAttribute="top" secondItem="3zI-ty-p4U" secondAttribute="bottom" constant="8" symbolic="YES" id="YVG-17-ygY"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="trailing" secondItem="1MA-Jg-P8n" secondAttribute="trailing" id="Ztn-be-hIS"/>
+                            <constraint firstItem="3zI-ty-p4U" firstAttribute="leading" secondItem="qje-eJ-LxB" secondAttribute="leading" id="eB7-Kh-2rA"/>
+                            <constraint firstItem="GXz-h6-28S" firstAttribute="top" secondItem="1MA-Jg-P8n" secondAttribute="bottom" constant="10" id="mOE-Cy-4u8"/>
+                            <constraint firstItem="qje-eJ-LxB" firstAttribute="trailing" secondItem="3zI-ty-p4U" secondAttribute="trailing" id="mgW-vG-kUI"/>
+                            <constraint firstItem="1MA-Jg-P8n" firstAttribute="leading" secondItem="qje-eJ-LxB" secondAttribute="leading" id="qtJ-j4-kCe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IXZ-wf-mC2"/>
+                    <connections>
+                        <outlet property="attachmentContainer" destination="oTm-9D-7Eg" id="RYB-34-B1E"/>
+                        <outlet property="attributesContainer" destination="PEf-oT-DnR" id="OgP-4o-HSx"/>
+                        <outlet property="segement" destination="GXz-h6-28S" id="HWw-K1-gAA"/>
+                        <outlet property="titleLabel" destination="OXx-pX-JFG" id="90y-if-Clr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHE-KD-Lie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742.0289855072465" y="95.758928571428569"/>
+        </scene>
+        <!--Attributes View Controller-->
+        <scene sceneID="6eC-j2-gmu">
+            <objects>
+                <viewController storyboardIdentifier="AttributesViewController" id="0C3-ho-wqi" customClass="AttributesViewController" customModule="ShowBuildingEsri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hqw-d5-gt9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UaQ-6B-Iew">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0C3-ho-wqi" id="GIN-DC-hRr"/>
+                                    <outlet property="delegate" destination="0C3-ho-wqi" id="DDt-9s-kcs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Seh-48-4an"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Seh-48-4an" firstAttribute="bottom" secondItem="UaQ-6B-Iew" secondAttribute="bottom" id="DqJ-kn-JHs"/>
+                            <constraint firstItem="UaQ-6B-Iew" firstAttribute="leading" secondItem="Seh-48-4an" secondAttribute="leading" id="NM4-Q7-V86"/>
+                            <constraint firstItem="Seh-48-4an" firstAttribute="trailing" secondItem="UaQ-6B-Iew" secondAttribute="trailing" id="nDy-NT-Mns"/>
+                            <constraint firstItem="UaQ-6B-Iew" firstAttribute="top" secondItem="Hqw-d5-gt9" secondAttribute="top" id="vyT-yx-4Uv"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="716"/>
+                    <connections>
+                        <outlet property="tableView" destination="UaQ-6B-Iew" id="5Xs-g4-Zkq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1i-0F-lwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2473.913043478261" y="95.758928571428569"/>
+        </scene>
+        <!--Attachment View Controller-->
+        <scene sceneID="BEf-hw-NrQ">
+            <objects>
+                <viewController storyboardIdentifier="AttachmentViewController" id="db3-Zk-15s" customClass="AttachmentViewController" customModule="ShowBuildingEsri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="te8-1c-GU9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no attachment now" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="37s-mS-4a1">
+                                <rect key="frame" x="20.5" y="329" width="373" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b53-JP-yJq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="37s-mS-4a1" firstAttribute="centerY" secondItem="te8-1c-GU9" secondAttribute="centerY" id="1U8-eI-1Th"/>
+                            <constraint firstItem="37s-mS-4a1" firstAttribute="width" secondItem="te8-1c-GU9" secondAttribute="width" multiplier="0.9:1" id="Usj-F2-SnE"/>
+                            <constraint firstItem="37s-mS-4a1" firstAttribute="centerX" secondItem="te8-1c-GU9" secondAttribute="centerX" id="zDV-y3-xLP"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="716"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O94-tx-aWH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3201" y="96"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
